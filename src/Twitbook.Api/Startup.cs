@@ -41,6 +41,8 @@ namespace Twitbook.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
@@ -49,6 +51,8 @@ namespace Twitbook.Api
             });
 
             app.UseMvc();
+
+            
         }
 
         private static string SchemaIdStrategy(Type currentClass)

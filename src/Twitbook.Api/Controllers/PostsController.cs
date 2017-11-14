@@ -15,13 +15,13 @@ namespace Twitbook.Api.Controllers
             {
                 new PostDto
                 {
-                    Id = new Guid("00000000-0000-0000-0000-000000000001"),
+                    Id = 1,
                     Content = "Twit!",
                     PostedAt = new DateTime(2017, 11, 01, 11, 10, 0)
                 },
                 new PostDto
                 {
-                    Id = new Guid("00000000-0000-0000-0000-000000000002"),
+                    Id = 2,
                     Content = "Twoo!",
                     PostedAt = new DateTime(2017, 11, 01, 11, 13, 0)
                 }
@@ -31,11 +31,11 @@ namespace Twitbook.Api.Controllers
         
         [HttpGet("{id}", Name = "GetPost")]
         [ProducesResponseType(typeof(PostDto), 200)]
-        public IActionResult Get(Guid id)
+        public IActionResult Get(int id)
         {
             return Ok(new PostDto
             {
-                Id = new Guid("00000000-0000-0000-0000-000000000002"),
+                Id = 2,
                 Content = "Twoo!",
                 PostedAt = new DateTime(2017, 11, 01, 11, 13, 0)
             });
@@ -53,7 +53,7 @@ namespace Twitbook.Api.Controllers
 
             var post = new PostDto
             {
-                Id = Guid.NewGuid(),
+                Id = 3,
                 Content = newPost.Content,
                 PostedAt = DateTime.UtcNow
             };

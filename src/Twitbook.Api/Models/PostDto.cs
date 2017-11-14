@@ -7,7 +7,7 @@ namespace Twitbook.Api.Models
 {
     public class PostDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public DateTime PostedAt { get; set; }
         public string Content { get; set; }
 
