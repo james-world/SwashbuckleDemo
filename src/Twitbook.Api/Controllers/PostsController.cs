@@ -8,6 +8,7 @@ namespace Twitbook.Api.Controllers
     public class PostsController : Controller
     {
         [HttpGet]
+        [ProducesResponseType(typeof(PostDto[]),200)]
         public IActionResult Get()
         {
             var posts = new[]
@@ -29,6 +30,7 @@ namespace Twitbook.Api.Controllers
         }
         
         [HttpGet("{id}", Name = "GetPost")]
+        [ProducesResponseType(typeof(PostDto), 200)]
         public IActionResult Get(Guid id)
         {
             return Ok(new PostDto
@@ -40,6 +42,8 @@ namespace Twitbook.Api.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(PostDto), 201)]
+        [ProducesResponseType(typeof(ErrorDto), 400)]
         public IActionResult Post([FromBody]PostForCreationDto newPost)
         {
             if (newPost.Content.Contains("bugger"))
@@ -58,6 +62,7 @@ namespace Twitbook.Api.Controllers
         }
 
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(void), 200)]
         public IActionResult Put(Guid id, [FromBody]PostForUpdateDto editedPost)
         {
             return NoContent();
