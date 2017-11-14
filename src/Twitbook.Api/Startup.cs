@@ -28,6 +28,7 @@ namespace Twitbook.Api
 
             services.AddSwaggerGen(c =>
             {
+                c.CustomSchemaIds(SchemaIdStrategy);
                 c.SwaggerDoc("v1", new Info {Title = "Twitbook API", Version = "v1"});
             });
         }
@@ -43,6 +44,12 @@ namespace Twitbook.Api
             app.UseSwagger();
 
             app.UseMvc();
+        }
+
+        private static string SchemaIdStrategy(Type currentClass)
+        {
+            var name = currentClass.Name;
+            return name.EndsWith("Dto") ? name.Substring(0, name.Length - 3) : name;
         }
     }
 }
