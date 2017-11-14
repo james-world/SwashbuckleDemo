@@ -1,10 +1,12 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Twitbook.Api.Models;
 
 namespace Twitbook.Api.Controllers
 {
     [Route("api/v1/posts")]
+    [Authorize(Policy = "TwitbookApi")]
     public class PostsController : Controller
     {
         /// <summary>
