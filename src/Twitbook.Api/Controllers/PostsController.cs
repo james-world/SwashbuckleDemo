@@ -7,6 +7,10 @@ namespace Twitbook.Api.Controllers
     [Route("api/v1/posts")]
     public class PostsController : Controller
     {
+        /// <summary>
+        /// Fetch all posts
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [ProducesResponseType(typeof(PostDto[]),200)]
         public IActionResult Get()
